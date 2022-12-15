@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelCliente" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="54fd9164-b4a8-4239-8637-e3a8f7c8aab1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     e2cliente.`COD` AS e2cliente_COD,
+     e2cliente.`NOME` AS e2cliente_NOME,
+     e2cliente.`CPF` AS e2cliente_CPF,
+     e2cliente.`TELCEL` AS e2cliente_TELCEL,
+     e2cliente.`CEP` AS e2cliente_CEP,
+     e2cliente.`LOCALIDADE` AS e2cliente_LOCALIDADE,
+     e2cliente.`UF` AS e2cliente_UF
+FROM
+     `e2cliente` e2cliente]]>
+	</queryString>
+	<field name="e2cliente_COD" class="java.lang.Integer"/>
+	<field name="e2cliente_NOME" class="java.lang.String"/>
+	<field name="e2cliente_CPF" class="java.lang.String"/>
+	<field name="e2cliente_TELCEL" class="java.lang.String"/>
+	<field name="e2cliente_CEP" class="java.lang.String"/>
+	<field name="e2cliente_LOCALIDADE" class="java.lang.String"/>
+	<field name="e2cliente_UF" class="java.lang.String"/>
+	<group name="e2cliente_COD">
+		<groupExpression><![CDATA[$F{e2cliente_COD}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="134" y="7" width="268" height="32" uuid="47c97393-c633-43f7-a576-b5075b70e408"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATÓRIO DE CLIENTES]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yy">
+				<reportElement x="442" y="7" width="100" height="20" uuid="a92e36c8-3f61-47ed-828f-88d253619188"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="7" width="100" height="20" uuid="4ae0445a-3b42-4414-978f-645ca6cbe82c"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="24" height="20" uuid="cff4f1fb-5d25-4696-8346-51b876681e2f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="5" width="100" height="20" uuid="d2bef13f-73ac-46f7-aa9e-781d0a48146f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="5" width="100" height="20" uuid="8db453e8-7e50-4040-b3a3-df1485b2778f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="234" y="5" width="100" height="20" uuid="c1d0d3a6-a68a-4b6f-9873-86679aed8e44"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TEL.CEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="5" width="100" height="20" uuid="e77a818e-0c11-4a61-8b6e-c5f3558667f2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="5" width="71" height="20" uuid="111a7bbf-65b5-48a3-9768-f716b28b69cd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="519" y="5" width="31" height="20" uuid="0e0b04fe-4814-43f9-b669-44676638ad72"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="24" height="20" uuid="d26ae9dd-6de9-4363-8536-0f42591b7057"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="0" width="100" height="20" uuid="fd2b6235-fdd4-401f-a02f-657ec57d8919"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="1" width="100" height="20" uuid="3050941d-63d6-4019-905c-a7aa00c82b5f"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="1" width="100" height="20" uuid="41e521f2-d63c-4948-ac21-bb042b44cddb"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_TELCEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="2" width="100" height="20" uuid="04f8266e-9f51-48f4-8b65-c7029ae900ea"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_CEP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="1" width="71" height="20" uuid="1334da85-5016-4ee5-937a-59440090b471"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_LOCALIDADE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="519" y="1" width="31" height="20" uuid="b8389cdb-22f8-4dd4-a658-c9033b3ab303"/>
+				<textFieldExpression><![CDATA[$F{e2cliente_UF}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
